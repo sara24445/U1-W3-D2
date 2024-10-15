@@ -85,20 +85,18 @@
       */
 
       const changeTitle = function (title) {
-        document.title = title
+        const h1 = document.getElementsByTagName('h1')[0]
+        h1.innerText = 'new title'
       }
-      changeTitle('Il nuovo titolo della pagina')
+      changeTitle()
 
       /* ESERCIZIO 2
          Scrivi una funzione per aggiungere al titolo della pagina una classe "myHeading"
       */
 
       const addClassToTitle = function () {
-        const titleElement = document.getElementById('pageTitle')
-
-        titleElement.classList.add('myHeading')
-
-        document.title = titleElement.textContent
+        const h1 = document.getElementsByTagName('h1')[0]
+        h1.classList.add('my heading')
       }
       addClassToTitle()
 
@@ -107,11 +105,10 @@
         */
 
       const changePcontent = function () {
-        const textDiv = document.querySelector('div div')
-        const paragraphs = textDiv.getElementsByTagName('p')
-
-        for (let i = 0; i < paragraphs.length; i++) {
-          paragraphs[i].textContent = `Nuovo testo per il paragrafo ${i + 1}`
+        const allp = document.querySelectorAll('div p')
+        console.log('allp', allp)
+        for (let i = 0; i < allp.length; i++) {
+          allp[i].innerText = 'questo è il paragrafo n.' + (i + 1)
         }
       }
       changePcontent()
@@ -121,13 +118,8 @@
         */
 
       const changeUrls = function () {
-        const links = document.querySelectorAll('a')
-
-        links.forEach((link) => {
-          if (!link.closest('footer')) {
-            link.href = 'https://www.google.com'
-          }
-        })
+        const allthelinks = document.querySelectorAll('a:not(footer a)')
+        console.log('allthelinks', allthelinks)
       }
       changeUrls()
 
@@ -136,10 +128,10 @@
       */
 
       const addToTheSecond = function () {
-        const secondList = document.getElementById('secondList')
-        const newItem = document.createElement('li')
-        newItem.textContent = 'Nuovo elemento'
-        secondList.appendChild(newItem)
+        const secondul = document.getElementById('secondList')
+        const newLi = document.createElement('li')
+        newLi.innerText = 'nuovo'
+        firstdiv.appendChild(newp)
       }
       addToTheSecond()
 
@@ -148,11 +140,9 @@
       */
 
       const addParagraph = function () {
-        const firstDiv = document.querySelector('div')
-        const newParagraph = document.createElement('p')
-        newParagraph.textContent =
-          'Questo è un nuovo paragrafo aggiunto al primo div.'
-        firstDiv.appendChild(newParagraph)
+        const firstdiv = document.getElementsByTagName('div')[0]
+        const newp = document.createElement('p')
+        newp.innerText = 'lorem'
       }
       addParagraph()
 
